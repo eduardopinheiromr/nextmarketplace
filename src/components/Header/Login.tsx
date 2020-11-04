@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <LoginButtons>
       <button className="login">Login</button>
-      <button className="signup">Sign Up</button>
+      <button className="signup">Criar conta</button>
     </LoginButtons>
   )
 }

@@ -4,14 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Slider from 'react-slick'
 
-const novidades = [
-  { name: 'Novidade 1', image_path: '' },
-  { name: 'Novidade 2', image_path: '' },
-  { name: 'Novidade 3', image_path: '' }
-]
-
 const NovidadesList = styled.div`
-  padding: 50px;
+  padding: 20px 40px;
   text-align: center;
   h2 {
     padding: 30px;

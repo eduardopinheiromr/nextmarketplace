@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 
 const DestaquesList = styled.div`
-  padding: 50px;
+  padding: 20px 40px;
   text-align: center;
 
   h2 {
