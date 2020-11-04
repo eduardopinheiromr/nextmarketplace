@@ -9,12 +9,13 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const ContainerHeader = styled.header`
-  height: 60px;
+  height: 50px;
   background: #000;
   display: flex;
   align-items: center;
   width: 100vw;
-  padding-left: 70px;
+  // padding-left: 70px;
+  padding: 10px;
   justify-content: space-between;
 
   .link {

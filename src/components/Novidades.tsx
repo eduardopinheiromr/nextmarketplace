@@ -2,6 +2,7 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
 import styled from 'styled-components'
+import Slider from 'react-slick'
 
 const novidades = [
   { name: 'Novidade 1', image_path: '' },
@@ -10,37 +11,42 @@ const novidades = [
 ]
 
 const NovidadesList = styled.div`
-  display: flex;
-  flex-direction: column;
   padding: 50px;
-  align-items: center;
-
-  .novidadeCard {
-    cursor: pointer;
-    text-align: center;
-    height: 250px;
-    width: calc(80vw / 3);
-    margin: 10px;
-    background: purple;
-  }
-  .novidades {
-    display: flex;
-    flex-wrap: wrap;
+  text-align: center;
+  h2 {
+    padding: 30px;
   }
 `
-export default function Novidades() {
+export default function Novidades(props) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 3
+  }
   return (
     <NovidadesList>
       <h2>Novidades</h2>
-      <div className="novidades">
-        {novidades.map(novidade => {
+      <Slider {...settings}>
+        {props.data.map(product => {
           return (
-            <div className="novidadeCard">
-              <h3>{novidade.name}</h3>
+            <div key={product._id}>
+              <h3
+                style={{
+                  color: '#fff',
+                  height: 150,
+                  width: 300,
+                  background: 'purple',
+                  padding: '20px'
+                }}
+              >
+                {product.name}
+              </h3>
             </div>
           )
         })}
-      </div>
+      </Slider>
     </NovidadesList>
   )
 }

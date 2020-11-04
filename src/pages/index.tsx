@@ -9,7 +9,7 @@ import Novidades from '../components/Novidades'
 
 import { Container } from '../styles/pages/Home'
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ data }) => {
   return (
     <Container>
       <Head>
@@ -18,10 +18,21 @@ const Home: React.FC = () => {
       <Header />
       <BannerPrincipal />
       <Categorias />
-      <Destaques />
-      <Novidades />
+      <Destaques data={data} />
+      <Novidades data={data} />
     </Container>
   )
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch('https://limitless-cove-49173.herokuapp.com/products')
+  const data = await res.json()
+  console.log(data)
+  return {
+    props: {
+      data
+    }
+  }
 }
 
 export default Home

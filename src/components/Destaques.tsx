@@ -2,44 +2,49 @@
 /* eslint-disable no-use-before-define */
 import React from 'react'
 import styled from 'styled-components'
-
-const destaques = [
-  { name: 'Produto 1', image_path: '' },
-  { name: 'Produto 2', image_path: '' },
-  { name: 'Produto 3', image_path: '' }
-]
+import Slider from 'react-slick'
 
 const DestaquesList = styled.div`
-  display: flex;
-  flex-direction: column;
   padding: 50px;
-  align-items: center;
+  text-align: center;
 
-  .destaqueCard {
-    cursor: pointer;
-    text-align: center;
-    height: 250px;
-    width: calc(80vw / 3);
-    margin: 10px;
-    background: purple;
-  }
-  .destaques {
-    display: flex;
-    flex-wrap: wrap;
+  h2 {
+    padding: 30px;
   }
 `
-export default function Destaques() {
+
+export default function Destaques(props) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 3
+  }
   return (
     <DestaquesList>
       <h2>Destaques</h2>
-      <div className="destaques">
-        {destaques.map(destaque => {
-          return (
-            <div className="destaqueCard">
-              <h3>{destaque.name}</h3>
-            </div>
-          )
-        })}
+
+      <div>
+        <Slider {...settings}>
+          {props.data.map(product => {
+            return (
+              <div key={product._id}>
+                <h3
+                  style={{
+                    color: '#fff',
+                    height: 150,
+                    width: 300,
+                    background: 'purple',
+                    padding: '20px'
+                  }}
+                >
+                  {product.name}
+                </h3>
+              </div>
+            )
+          })}
+        </Slider>
       </div>
     </DestaquesList>
   )
