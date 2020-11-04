@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
-import Image from 'next/image'
 import ToggleMenu from './Header/ToggleMenu'
 import SearchBar from './Header/SearchBar'
 import Login from './Header/Login'
@@ -14,12 +13,17 @@ const ContainerHeader = styled.header`
   display: flex;
   align-items: center;
   width: 100vw;
-  // padding-left: 70px;
   padding: 10px;
   justify-content: space-between;
 
   .link {
     cursor: pointer;
+  }
+
+  h1 {
+    font-size: 24pt !important;
+    margin: 0 !important;
+    font-weight: bolder;
   }
 `
 
@@ -29,7 +33,9 @@ const Header = () => {
     <ContainerHeader>
       <ToggleMenu />
       <Link href="/novapagina">
-        <Image src="/rocketseat.svg" height="40" width="200" className="link" />
+        <h1>
+          <span style={{ color: '#fff' }}>Cool</span>Stuff
+        </h1>
       </Link>
       <SearchBar />
       <Login />
